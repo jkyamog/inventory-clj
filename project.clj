@@ -41,7 +41,7 @@
   :ragtime
   {:migrations ragtime.sql.files/migrations,
    :database
-   "jdbc:postgresql://localhost/inventory?user=db_user_name_here&password=db_user_password_here"}
+   "jdbc:postgresql://localhost/inventory?user=inventory&password=testing"}
   :profiles
   {:uberjar {:aot :all},
    :production

@@ -8,7 +8,8 @@
             [taoensso.timbre.appenders.rotor :as rotor]
             [selmer.parser :as parser]
             [environ.core :refer [env]]
-            [inventory.routes.cljsexample :refer [cljs-routes]]))
+            [inventory.routes.cljsexample :refer [cljs-routes]]
+            [inventory.routes.product :refer [product-routes]]))
 
 (defroutes
   app-routes
@@ -42,7 +43,7 @@
 
 (def app
  (app-handler
-   [cljs-routes home-routes app-routes]
+   [cljs-routes home-routes app-routes product-routes]
    :middleware
    [middleware/template-error-page middleware/log-request]
    :access-rules
