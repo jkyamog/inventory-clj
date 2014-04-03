@@ -26,14 +26,15 @@
    [cljs-ajax "0.2.3"]
    [lib-noir "0.8.1"]
    [compojure "1.1.6"]
-   [postgresql/postgresql "9.1-901.jdbc4"]]
+   [postgresql/postgresql "9.1-901.jdbc4"]
+   [im.chit/gyr "0.3.1"]]
   :cljsbuild
   {:builds
    [{:source-paths ["src-cljs"],
      :compiler
      {:pretty-print false,
       :output-to "resources/public/js/site.js",
-      :optimizations :advanced}}]}
+      :optimizations :whitespace}}]}
   :ring
   {:handler inventory.handler/app,
    :init inventory.handler/init,

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Inventory</title>
+</head>
+<body>
+
+    <div ng-controller="ProductController">
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th colspan="2">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products">
+                    <td><input type="text" ng-model="product.name" placeholder="name"/></td>
+                    <td><input type="text" ng-model="product.description" placeholder="description"/></td>
+                    <td><input type="text" ng-model="product.quantity" placeholder="quantity"/></td>
+                    <td>
+                    <input type="button" ng-click="updateProduct(product)" value="save"/>
+                    <input type="button" ng-click="deleteProduct(product)" value="delete"/>
+                    </td>
+                </tr>
+                <tr ng-controller="ProductCreateController">
+                    <td><input type="text" ng-model="product.name" placeholder="name"/></td>
+                    <td><input type="text" ng-model="product.description" placeholder="description"/></td>
+                    <td><input type="text" ng-model="product.quantity" placeholder="quantity"/></td>
+                    <td><input type="button" ng-click="save()" value="save"/></td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- scripts and styles -->
+    {% style "/../css/bootstrap-theme.min.css" %}
+    {% style "/../css/bootstrap.min.css" %}
+    {% style "/../css/screen.css" %}
+    <script src="//code.jquery.com/jquery-2.0.3.min.js" type="text/javascript"></script>
+    {% script "/../js/bootstrap.min.js" %}
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-resource.js"></script>
+    {% script "/../js/site.js" %}
+
+</body>

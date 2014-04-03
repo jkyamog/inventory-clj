@@ -10,3 +10,4 @@ pom.xml
 *.log
 .idea
 *.iml
+resources/public/js/site.js

@@ -43,7 +43,7 @@
 
 (def app
  (app-handler
-   [cljs-routes home-routes app-routes product-routes]
+   [cljs-routes home-routes product-routes app-routes]
    :middleware
    [middleware/template-error-page middleware/log-request]
    :access-rules
