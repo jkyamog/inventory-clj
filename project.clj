@@ -27,7 +27,8 @@
    [lib-noir "0.8.1"]
    [compojure "1.1.6"]
    [postgresql/postgresql "9.1-901.jdbc4"]
-   [im.chit/gyr "0.3.1"]]
+   [im.chit/gyr "0.3.1"]
+   [montoux/gestalt "2.0.3"]]
   :cljsbuild
   {:builds
    [{:source-paths ["src-cljs"],
@@ -42,12 +43,15 @@
   :ragtime
   {:migrations ragtime.sql.files/migrations,
    :database
-   "jdbc:postgresql://localhost/inventory?user=inventory&password=testing"}
+   "jdbc:postgresql://localhost/inventory-test?user=inventory&password=testing"}
   :profiles
   {:uberjar {:aot :all},
    :production
    {:ring
     {:open-browser? false, :stacktraces? false, :auto-reload? false}},
+   :test
+   {:dependencies []
+    :jvm-opts ["-Dgestalt.environment=testing"]}
    :dev
    {:dependencies [[ring-mock "0.1.5"] [ring/ring-devel "1.2.2"]],
     :env {:dev true}}}

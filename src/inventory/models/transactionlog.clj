@@ -6,6 +6,8 @@
 (defmulti transaction-type :type)
 (defmethod transaction-type "create-product" [product]
   (dissoc product :id))
+(defmethod transaction-type "update-product" [product]
+  (dissoc product :id))
 
 (defentity transactionlogs)
 

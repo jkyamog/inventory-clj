@@ -21,9 +21,11 @@
     (where {:id (Integer/parseInt id)})))
 
 (defn update-product [id product]
-  (update products
-    (set-fields product)
-    (where {:id (Integer/parseInt id)})))
+  (transaction
+    (tlog/insert-transactionlogs (assoc product :type "update-product"))
+    (update products
+      (set-fields product)
+      (where {:id (Integer/parseInt id)}))))
 
 (defn delete-product [id]
   (delete products
